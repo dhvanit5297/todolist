@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import List from "./List";
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
+  const [inputText, setInput] = useState("");
+  const [todoList, setTodoList] = useState([]);
+
+  const handleInput = () => {
+    const newItem = {
+      id: uuidv4(),
+      data: inputText,
+      success: false,
+    };
+    setTodoList([...todoList, newItem]);
+    setInput("");
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="App">
+        <h1>To-Do-List</h1>
+        <input
+          type="text"
+          value={inputText}
+          placeholder="Enter text here..."
+          onChange={(e) => {
+            setInput(e.target.value);
+          }}
+          required
+        />
+        <button onClick={handleInput}>Add</button>
+      </div>
+      <List onInput={todoList}/>
+    </>
   );
 }
 
