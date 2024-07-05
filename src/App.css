@@ -14,10 +14,7 @@
   justify-content: center;
   overflow-y: auto;
   overflow-wrap: anywhere;
-
 }
-
-
 
 input {
   padding: 8px;
@@ -43,36 +40,63 @@ button:hover {
   background-color: #0056b3;
 }
 
-.todolist{
+.todolist {
   display: flex;
   align-items: center;
   justify-content: space-between; /* Ensure the items are spaced apart */
   padding: 10px;
-  margin : 5px 0;
+  margin: 5px 0;
   border: 1px solid #ccc;
   border-radius: 10px;
   background-color: #ffffff;
 }
 
-.right{
+.right {
   display: flex;
   align-items: center;
   justify-content: space-between; /* Ensure the items are spaced apart */
   padding: 10px;
-  margin : 5px 0;
+  margin: 5px 0;
   border: 1px solid #ccc;
   border-radius: 10px;
   background-color: #1cdd73;
 }
 span:first-child {
   font-size: 20px;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   color: #000000;
 }
 
-.symbol{
+.symbol {
   font-size: 20px;
   cursor: pointer; /* Change cursor to pointer for the delete icon */
   transition: color 0.3s;
 }
 
+
+/* Media queries for responsiveness */
+@media (max-width:480px) {
+
+:root{
+  margin-top: 30%;
+}
+  
+  .container {
+    width: 70%;
+    height: 35vh;
+  }
+
+  input{
+    font-size: 12px; /* Adjust font size for smaller screens */
+    width: 38%; /* Adjust padding for smaller screens */
+  }
+
+  .todolist, .right {
+    padding: 8px;
+    font-size: 12px; /* Adjust font size */
+  }
+
+  span:first-child, .symbol {
+    font-size: 12px; /* Adjust font size */
+  }
+}
