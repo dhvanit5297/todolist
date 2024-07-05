@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from "react";
 
-function List({ onInput }) {
+function List({ onInput,onupdate }) {
   const [sucessid, setSucessId] = useState([]);
     const [newToDo,setNewToDo]= useState(onInput)
 
@@ -20,8 +20,12 @@ function List({ onInput }) {
   };
 
   const handleDelet=(id)=>{
-    setNewToDo(newToDo.filter((item)=>item.id!==id))
+    const newerToDo = newToDo.filter((item)=>item.id!==id)
+    // console.log(newerToDo)
+    setNewToDo(newerToDo)
+    onupdate(newerToDo)
   }
+
 
   return (
     <div className="container">

@@ -17,6 +17,10 @@ function App() {
     setInput("");
   };
 
+  const newUpdate = (data) => {
+    setTodoList(data);
+  };
+
   return (
     <>
       <div className="App">
@@ -32,7 +36,7 @@ function App() {
         />
         <button onClick={handleInput}>Add</button>
       </div>
-      <List onInput={todoList}/>
+      <List onInput={todoList} onupdate={newUpdate} />
     </>
   );
 }
